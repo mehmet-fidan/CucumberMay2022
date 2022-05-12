@@ -1,6 +1,8 @@
 package excelUtil;
 
 import org.apache.poi.ss.usermodel.*;
+import org.testng.annotations.Test;
+import utils.LoginPage;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -8,11 +10,36 @@ import java.io.InputStream;
 import java.util.LinkedList;
 import java.util.List;
 
-public class ReadExcel1 {
+public class ReadExcel1 extends LoginPage{
 
-    public static void main(String[] args) throws IOException {
 
-        String filename = "src/test/java/excelUtil/report.xls";
+   @Test
+   public void test_Excel() throws IOException {
+
+       String filename = "src/main/java/excelUtil/MOCK_DATA (1).xls";
+       String sayfa = "data";
+       // ilkMain();
+       //   System.out.println("------------");
+       //  System.out.println(getData(filename, sayfa));
+
+       for (List<String> row : getData(filename,sayfa)) {
+           String username = row.get(1);
+           String password = row.get(2);
+           beLogin(username,password);
+           System.out.println(username+", "+password);
+
+       }
+
+
+   }
+
+
+
+
+   /* public static void main(String[] args) throws IOException {
+
+
+        String filename = "src/main/java/excelUtil/report.xls";
         String sayfa = "Sayfa2";
        // ilkMain();
      //   System.out.println("------------");
@@ -21,12 +48,14 @@ public class ReadExcel1 {
         for (List<String> row : getData(filename,sayfa)) {
              String username = row.get(0);
              String password = row.get(1);
-
+            beLogin(username,password);
             System.out.println(username+", "+password);
 
         }
 
     }
+
+    */
 
     public static List<List<String>> getData(String file, String sayfa) throws IOException {
 

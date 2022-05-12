@@ -9,7 +9,7 @@ public class ReadProperty1 {
 
     public static void main(String[] args) throws IOException {
 
-        InputStream input =new FileInputStream("src/test/java/propertyFiles/file.properties");
+        InputStream input =new FileInputStream("src/main/java/propertyFiles/file.properties");
 
         Properties prop = new Properties();
         prop.load(input);

@@ -8,7 +8,7 @@ import java.util.Properties;
 public class ReadProperty2 {
 
     public static void main(String[] args) throws IOException {
-        String file = "src/test/java/propertyFiles/file.properties";
+        String file = "src/main/java/propertyFiles/file.properties";
 
         InputStream input = new FileInputStream(file);
 
